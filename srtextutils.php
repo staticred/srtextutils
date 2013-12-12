@@ -91,5 +91,26 @@ class srTextUtil {
   public function countwords() {
     $this->wordcount = str_word_count(strip_tags($this->content));
   }
+
+  /** 
+    * pulls links out of text and provides links and text offset as arrays
+    *
+    * @param none
+    * @return mixed  array if links found, false if no links found
+    */  
+  public function getlinks() {
+    if (isset($this->content)) {
+      $matches = array();
+      // Regex supplied from http://forums.phpfreaks.com/topic/151507-solved-extract-url-from-string/?p=795890
+      if (preg_match_all('$\b(https?|ftp|file)://[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|]$i' , $this->content , $matches, PREG_OFFSET_CAPTURE)) {
+        return $matches[0];
+      } else {
+        return FALSE;
+      }
+    } else {
+      return FALSE;
+    }
+  }
+  
   
 }
