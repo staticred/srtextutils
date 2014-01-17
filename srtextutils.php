@@ -95,6 +95,33 @@ class srTextUtil {
   /** 
     * pulls links out of text and provides links and text offset as arrays
     *
+    * Array structure:
+    *   
+    *   array(3) {
+    *     [0]=>
+    *     array(2) {
+    *       [0]=>
+    *       string(20) "http://staticred.com"
+    *       [1]=>
+    *       int(18)
+    *     }
+    *     [1]=>
+    *     array(2) {
+    *       [0]=>
+    *       string(19) "ftp://staticred.net"
+    *       [1]=>
+    *       int(43)
+    *     }
+    *     [2]=>
+    *     array(2) {
+    *       [0]=>
+    *       string(20) "https://linkedin.com"
+    *       [1]=>
+    *       int(92)
+    *     }
+    *   }
+
+    *
     * @param none
     * @return mixed  array if links found, false if no links found
     */  
